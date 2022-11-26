@@ -1,5 +1,6 @@
 x = 0;
 y = 0;
+to_number = 0;
 
 draw_apple = "";
 
@@ -25,22 +26,22 @@ recognition.onresult = function(event) {
 
     if(Number.isInteger(to_number))
     {
-
+      draw_apple = "set";
     }
 
 }
 
 function preload()
 {
-  loadImage(draw_apple)
+  apple = loadImage("apple.png")
 }
 
 function setup() 
 {
     srceen_width = window.innerHTML;
     srceen_height = window.innerHTML;
-    createCanvas(150,150);
-    canvas.position(0,150);
+    canvas = createCanvas(700,400);
+    canvas.center();
     
 }
 
@@ -54,11 +55,9 @@ function draw() {
     {
       x = Math.floor(Math.random() * 700);
       y = Math.floor(Math.random() * 400);
-      Image(apple, x,y,50,50)
+      image(apple, x,y,50,50)
     }
   }
-
-  document.getElementById("status").innerHTML = to_number + "Apples drawn";
 
 }
 
